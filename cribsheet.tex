@@ -9,12 +9,12 @@
 \usepackage{booktabs}
 \usepackage{fancyhdr}
 \usepackage[margin=0.5in]{geometry}
-\usepackage[shortlabels]{enumitem}
+% \usepackage[shortlabels]{enumitem}
 \usepackage{tikz}
 
 
-\setlist[itemize]{label={$\bullet$}, topset=0.2ex, partopset=0pt, parsep=4pt, itemsep=0pt, leftmargin=4.5mm, labelsep=0.5ex}
-\setlist[enumerate]{align=left, listparindent=0pt}
+% \setlist[itemize]{label={$\bullet$}, topset=0.2ex, partopset=0pt, parsep=4pt, itemsep=0pt, leftmargin=4.5mm, labelsep=0.5ex}
+% \setlist[enumerate]{align=left, listparindent=0pt}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
@@ -54,9 +54,52 @@ $\neg(p\rightarrow q)\equiv p \wedge (\neg q)$, $p \rightarrow q$ is equivalent 
 \smallskip
 Propositional logic can be represented by gates, creating combinational circuits which can represent \textbf{any} logical expression. \\
 \medskip
-\textbf{Quantifiers:}
+\textbf{Quantifiers:} \\
+$
+\forall x(P(x) \rightarrow Q(x)) \equiv
+$
+\textit{for all x, if P(x) then Q(x)} \\
+$
+\exists x(P(x) \wedge Q(x)) \equiv
+$
+\textit{there exists an x such that P(x) and Q(x)} \\
 
+\textit{P(x),Q(x)} are propositional functions and there is always a \textbf{domain} or \textbf{universe of discourse}, either implicit or explicitly stated,over which the variable ranges. \\
+\medskip
+\textbf{Negations of quantified propositions:} $\neg \forall xP(x)\equiv \exists x\neg P(x); \neg \exists P(x) \equiv \forall x \neg P(x)$. \\
+\medskip
+\textbf{Theorem:} A proposition that can be proved; \textbf{lemma:} a simple theorem, commonly used as part of a greater picture to prove other theorems; \textbf{proof:} A demonstration that a proposition is true, \textbf{collorary:} A proposition that can be proved as a consequence of a theorem that has just been proved. A collorary can be seen as ``Side effects`` of the prooved theorem. \\
+\medskip
+A \textbf{valid} argument is an argument using correct rules of inference based on tautologies (something that will always give the \textbf{true} conclusion in \textbf{any} given scenario. I. E. a tautology is something that is always true for all possible combinations.) \\
+An \textbf{invalid} argument can be referred to as a \textbf{fallacy}, such as affirming the conclusion, denying the hypothesis, begging the question or circular reasoning. They can lead to false conclusions. \\
+\medskip
+\textbf{Some rules of inference:} 
+\begin{itemize}
+\item $[ p \wedge (p \rightarrow q) ]$ Modus Ponens
+\item $[ \neg q \wedge (p \rightarrow q)]$ Modus Tollens
+\item $[(p \rightarrow q) \wedge (q \rightarrow r)] \rightarrow (p \rightarrow r)$ Hypothetical syllogism (Transitivity)
+\item $[(p \vee q) \wedge (\neg p)] \rightarrow q$ Disjunctive syllogism
+\item $\{P(a) \wedge \forall x [P(x) \rightarrow Q(x)]\} \rightarrow Q(a)$ Universal modus ponens
+\item $\{\neg Q(a) \wedge \forall x[P(x) \rightarrow Q(x)]\} \rightarrow \neg P(a)$ Universal modus tollens
+\item $(\forall x P(x)) \rightarrow P(c)$ Universal instantiation
+\item $(P(c) arbitrary\ c) \rightarrow \forall xP(x)$ Universal generalization
+\item $(\exists xP(x)) \rightarrow (P(c)\ for\ some\ c)$ Existential instantiation
+\item $(P(c)\ for\ some\ element\ c) \rightarrow \exists x P(x)$ Existential generalization.
+\end{itemize}
+\newpage
+\subsubsection{Proofs} 
+\bigskip
+\textbf{Trivial proof:} A proof that $p \rightarrow q$ just shows that $q$ is true witout using the hypothesis $p$. \\
+\textbf{Vacuous proof:} A proof of $p \rightarrow q$ that just shows that the hypothesis $p$ is false. \\
+\textbf{Direct proof:} A proof of $p \rightarrow q$ that shows that the assumption of the hypothesis $p$ implies the conclusion of $q$. \\
+\textbf{Proof by contraposition:} A proof of $p \rightarrow q$ that shows that the assumption of the negation of the conclusion $q$ implies the negation of the hypothesis $p$ (in other words, proof of contrapositive).\\
+\textbf{Proof by contradiction:} A proof of $p$ that shows that the assumption of the negation of $p$ leads to a contradiction. \\
+\textbf{Proof by cases:} A proof of $(p_1 \vee p_2 \vee p_3 ... p_n) \rightarrow q$ that shows that each conditional statement $p_i \rightarrow q$ is true. Statements of the form $p \iff q$ require that both $p \rightarrow q$ and $q \rightarrow p$ be proved. It is sometimes necessary to give the two separate proof (usually a direct proof or a proof by contraposition); other times a string of equivalences can be constructed starting with $p$ and ending with $q : p \iff p_1 \iff p_2 ... \iff p_n \iff q$. \\
+To give a \textbf{constructive proof} of $\exists x P(x)$ is to show how to find an element $x$ that makes $P(x)$ true. \textbf{Non-constructive existence proofs} are also possible, often using \textbf{proof by contradiction}. \\
+One can \textbf{disprove} a universally quantified proposition $\forall x P(x)$ simply by giving a \textbf{counter example}, i.e. an object $x$ such that $P(x)$ is \textbf{false}. One can, however, not proove it with such an example. \\
+\medskip
+\textbf{Fermat's last theorem:} There are no positive integer solutions of $x^n + y^n = z^n\ if\ n > 2$. \\
+An integer is \textbf{even} if it can be written as $2k$ for some integer $k$; an integer is \textbf{odd} if it can be written as $2k + 1$ for some integer $k$. Every number is even or odd but not both. A number is \textbf{rational}, if it can be written as $p/q$ with $p$ being an integer and $q$ strictly a non-zero integer. \\
 
-
-
+ 
 \end{document}
