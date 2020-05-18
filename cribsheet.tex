@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{mathbbol,bm,amsmath,amsthm,amsfonts,amssymb}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[shortlabels]{enumitem}
+\usepackage{tikz}
+
+
+\setlist[itemize]{label={$\bullet$}, topset=0.2ex, partopset=0pt, parsep=4pt, itemsep=0pt, leftmargin=4.5mm, labelsep=0.5ex}
+\setlist[enumerate]{align=left, listparindent=0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\iff}{\;\leftrightarrow\;}
+\newcommand{\floor}[1][x]{\lfloor #1\rfloor}
+\newcommand{\ceil}[1][x]{\lceil #1\rceil}
+\newcommand{\mat}[1][A]{\text{\textbf{#1}}}
+\newcommand{\I}{\mathbb{1}}
+
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\alph{subsubsection}}
+
+\title{\huge Exam preparation crib sheet}
+
+\author{\LARGE MNF130V2020}
+
+\begin{document}
+
+\maketitle
+
+\bigskip
+
+\newpage
+
+\subsection{Chapter 1}
+\smallskip
+\textbf{Propositional logic}:. Logical $\wedge,\vee,\oplus$ are trivial. \\
+\smallskip
+\textbf{Conditional statements (implication)}: $p \rightarrow q$, if $p$ then $q \equiv p $ only if $q \equiv$ $p$ is a sufficient condition for $q$. \\
+In other words, q is a necessary condition for p. $p \rightarrow q$ is false then $p$ is true and $q$ is false and otherwise true. \\
+$\neg(p\rightarrow q)\equiv p \wedge (\neg q)$, $p \rightarrow q$ is equivalent to its contrapositive $\neg q \rightarrow \neg p$, but \textbf{not} to its \textbf{converse} $q \rightarrow p$ \textbf{or} its inverse $\neg p \rightarrow \neg q$. \\
+\smallskip
+\textbf{Biconditional statements:} $ p \iff q$ or expanded to $(p \rightarrow q) \wedge (q \rightarrow p)$. \\
+\smallskip
+\textbf{De Morgan:} $\neg(p \vee q) \equiv (\neg p) \wedge (\neg q)\ ;\ \neg(p \wedge q) \equiv (\neg p ) \vee (\neg q) $
+\smallskip
+Propositional logic can be represented by gates, creating combinational circuits which can represent \textbf{any} logical expression. \\
+\medskip
+\textbf{Quantifiers:}
+
+
+
+
+\end{document}
