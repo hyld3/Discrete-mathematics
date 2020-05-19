@@ -8,6 +8,7 @@
 \usepackage{mathtools}
 \usepackage{booktabs}
 \usepackage{fancyhdr}
+\usepackage[mathscr]{euscript}
 \usepackage[margin=0.5in]{geometry}
 % \usepackage[shortlabels]{enumitem}
 \usepackage{tikz}
@@ -16,6 +17,7 @@
 % \setlist[itemize]{label={$\bullet$}, topset=0.2ex, partopset=0pt, parsep=4pt, itemsep=0pt, leftmargin=4.5mm, labelsep=0.5ex}
 % \setlist[enumerate]{align=left, listparindent=0pt}
 
+\newcommand{\PP}{\mathscr{P}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -28,7 +30,7 @@
 \renewcommand{\thesubsection}{\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\alph{subsubsection}}
 
-\title{\huge Exam preparation crib sheet}
+\title{\huge Exam preparation cheetzheet: \\ \textit{Stuff from}}
 
 \author{\LARGE MNF130V2020}
 
@@ -100,6 +102,49 @@ One can \textbf{disprove} a universally quantified proposition $\forall x P(x)$ 
 \medskip
 \textbf{Fermat's last theorem:} There are no positive integer solutions of $x^n + y^n = z^n\ if\ n > 2$. \\
 An integer is \textbf{even} if it can be written as $2k$ for some integer $k$; an integer is \textbf{odd} if it can be written as $2k + 1$ for some integer $k$. Every number is even or odd but not both. A number is \textbf{rational}, if it can be written as $p/q$ with $p$ being an integer and $q$ strictly a non-zero integer. \\
+\newpage
+\subsection{Chapter 2}
+\subsubsection{Sets}
+\textbf{Empty set:} A set with no elements, commonly denoted as $\emptyset$. Do not confuse this with the set only containing the empty set. The difference is that the empty itself is empty, whereas the set containing the empty set has a single element. \\
+\textbf{Subset:} $A \subseteq B \equiv \forall x(x \in A \rightarrow x \in B)$, whereas a proper subset is $ A \subset B \equiv (A \subseteq B) \wedge (A \neq B)$, in other words, $B$ has at least one element different from the set $A$. \\
+\textbf{Equality of sets:} $A = B \equiv (A \subseteq B \wedge B \subseteq A) \equiv \forall x(x \in A \leftrightarrow x \in B)$. \\
+\textbf{Power set:} $\PP(A) = \{B | B \subseteq A \}$, the set of all subsets of $A$. A set with $n$ elements has $2^n$ subsets. \\
+\textbf{Cardinality:} $|S|$, the number of elements in $S$. \\
+Some specific sets in regards to cardinality: $\R$ is the set of real numbers, represented by either finite or infinite decimals; \\
+$\N$ is the set of all natural numbers (eg. $\{0,1,2,3,4,5...\}$), $\Z$ is the set of integers $\{... -2, -1, 0, 1, 2, ...\}$ and can also be denoted with only the positive or negative subset. $\mathbb{Q}$ is the set of rational numbers, where $\{ p / q | p, q \in \Z \wedge q \neq 0 \}$, $\mathbb{Q}^+$ is the set of positive rational numbers and a subset of $\mathbb{Q}$. \\
+\textbf{Set operations:} $A \times B = \{ (a,b) | a \in A \wedge b \in B\}$ (\textbf{Cartesian Product}); $\overline{A}$ is the set of elements in the universe which are \textbf{not} in $A$ (\textbf{complement}); $A \cap B = \{ x | x \in A \wedge x \in B\}$ (\textbf{intersection}); $A \cup B = \{ x | x \in A \vee x \in B\}$ (\textbf{union}); \\
+$A - B = A \cap \overline{B}$ (\textbf{difference}); $A \oplus B = (A - B) \cup (B - A)$, (\textbf{symmetric difference/xor}) \\
+\textbf{Inclusion-exclusion (simple case):} $|A \cup B| = |A| + |B| - |A \cap B|$\\
+\textbf{De Morgan's laws for sets:} $\overline{A \cap B} = \overline{A} \cup \overline{B}$; $\overline{A \cup B} = \overline{A} \cap \overline{B}$ \\
+A \textbf{function} f from $A$ (\textbf{the domain}) to $B$ (\textbf{the co-domain}) is an assignment of a unique element of $B$ to each element of $A$. Write $f: A \rightarrow B$. Write $f(a) = b$ if $b$ is assigned to $a$. \textbf{Range} of $f$ is $\{ f(a) | a \in A\}$; $f$ is \textbf{onto/surjective} $\equiv$ range $(f)$ = $B$; $f$ is \textbf{one-to-one/injective} $\equiv$ $\forall a_1 \forall a_2 [f(a_1) = f(a_2) \rightarrow a_1 = a_2]$ \\
+If $f$ is one-to-one \textbf{and} onto, it is \textbf{bijective} and the \textbf{inverse} function $f^{-1} : B \rightarrow A$ is defined by $f^{-1}(y) = x \equiv f(x) = y$. \\
+If $f : B \rightarrow C$ and $g : A \rightarrow B$, then the \textbf{composition} $f \circ g$ is the function from $A$ to $C$ defined by $f \circ g(x) = f(g(x))$. \\
+\textbf{Rounding functions:} $\floor{}$ is the largest integer less than or equal to x \textbf{floor function}; $\ceil{}$ is the smallest integer greater than or equal to $x$ \textbf{the ceiling function}. \\
+\textbf{Summation notation:}
+
+$$
+\sum_{n=1}^{n} a_i = a_1 + a_2 + a_3 + ... + a_n
+$$
+\textbf{Sum of first $n$ positive integers:} 
+$$
+\sum_{j=1}^{n} j = 1 + 2 + ... + n = \frac{n(n +1)}{2}
+$$
+\textbf{Sum of squares of first $n$ positive integers:}
+$$
+\sum_{j=1}^{n} j^2 = 1^2 + 2^2 + ... + n^2 = \frac{n(n +1)(2n+1)}{6}
+$$
+\textbf{Sum of geometric progression:}
+\textbf{(I don't think we did this in the course)}\\ 
+\newpage
+Two sets are said to have the \textbf{same cardinality} if there is a \textbf{bijection} between them. We can say that $|A| \leq |B|$ if there is a one-to-one function from $A$ to $B$. \\
+A set is $countable$ if it is finite or there is a \textbf{bijection} from the positive integers to the set. \textbf{In other words}, if the elements of the set can be listed (e.g. $a_1, a_2, ...$). Sets of the latter type are called $countably infinite$ and the \textbf{cardinality of these sets are denoted with $\aleph_0$ }. The empty set, the integers and the rational numbers \textbf{are countable}. The union of a countable number of countable sets is countable. \\
+\textbf{Schroder-Bernstein theorem:} If $|A| \leq |B|$ and $|B| \leq |A|$ then it must be that $|A| = |B|$. This can be explained as if there is a one-to-one function from A to B and a one-to-one function from B to A, then there is a one-to-one and onto function from A to B. \\
+\textbf{Matrix Multiplication:} The $(i,j)^{th}$ entry of \textbf{AB} is $\sum_{t=1}^k a_{it}b_{tj}$ for $1 \leq i \leq m$ and $1 \leq j \leq n$, where \textbf{A} is an $m \times k$ matrix and \textbf{B} is a $k \times n$ matrix. \\
+\textbf{Identity matrix $I_n$} with 1's on the main diagonal and 0's elsewhere is the multiplicative identity. \\
+Cardinality arguments can be used to show that some functions are \textbf{uncomputable}. \\
+Matrix addition (+), Boolean meet ($\wedge$) and join ($\vee$) are done entry-wise; Boolean matrix product ($\odot$) is like matrix multiplication using boolean operators. \\
+\textbf{Transpose:} \textbf{A}$^t$ is the matrix whose $(i,j)^{th}$ entry is $a_{ij}$ (the $(j,i)^{th}$ entry of \textbf{A}); \\
+\textbf{A} is \textbf{symmetric} if \textbf{$A^t=A$};
 
  
 \end{document}
