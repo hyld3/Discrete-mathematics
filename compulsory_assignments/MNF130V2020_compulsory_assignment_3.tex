@@ -1,0 +1,369 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{a4wide}
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{mathbbol,bm,amsmath,amsthm,amsfonts,amssymb}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage[shortlabels]{enumitem}
+\usepackage{fancyhdr}
+
+\setlist[itemize]{label={$\bullet$}, topsep=-0.2ex,
+  partopsep=0pt, parsep=4pt, itemsep=0pt, leftmargin=4.5mm,
+  labelsep=0.5ex}
+
+\setlist[enumerate]{align=left, listparindent=0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\iff}{\;\leftrightarrow\;}
+\newcommand{\floor}[1][x]{\lfloor #1\rfloor}
+\newcommand{\ceil}[1][x]{\lceil #1\rceil}
+\newcommand{\mat}[1][A]{\text{\textbf{#1}}}
+\newcommand{\I}{\mathbb{1}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textbf{Alexander Bergenholtz} \\ Mandatory assignment 3}
+\lhead{MNF130}
+\chead{\today}
+
+
+\makeatletter
+\newcommand*{\bdiv}{%
+  \nonscript\mskip-\medmuskip\mkern5mu%
+  \mathbin{\operator@font div}\penalty900\mkern5mu%
+  \nonscript\mskip-\medmuskip
+}
+\makeatother
+
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\alph{subsubsection}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+\newenvironment{answer}{\color{blue}}{}
+\newcommand{\bl}[1][T]{{\color{blue}#1}}
+
+\graphicspath{{./}{../images/}}
+
+\title{\huge Compulsory Assignment 3}
+
+\author{\LARGE \textbf{Alexander Bergenholtz}\\ \LARGE MNF130V2020\\}
+
+
+\date{\Large\textbf{Due on: Friday 13 March 2020, 14:00}}
+
+
+\begin{document}
+
+\maketitle
+
+\bigskip
+
+  \vspace*{15mm}
+
+  {\large
+  \begin{minipage}{\linewidth}
+    \begin{itemize}
+    \item Submit your assignment by leaving it in the box marked
+      \textbf{MNF130} at the \textbf{reception of the Department of
+        Informatics (Datablokken, 4th floor)}. The box will be
+      available from Monday 9 March.  \smallskip
+    \item If you cannot deliver the assignment in person, only use a
+      \textbf{UiB Pullprint scanner} and \textbf{submit on
+        Mitt}. Assignments sent by email, or from camera pictures
+      instead of scans, or otherwise illegible, will not count as a
+      valid submission and will not be graded.
+      \smallskip
+    \item Write your answers \textbf{one-sided} (don't use both sides
+      of a page), and start a new page for every exercise.
+      \smallskip
+    \item Write \textbf{your name} on every page.
+      \smallskip
+    \item You may write your answers in English or Norwegian.
+      \smallskip
+    \item The assignment covers the entire syllabus covered during the
+      lectures so far.
+      \smallskip
+    \item The assignment is scored on \textbf{30 points}. Hence you
+      need to score \textbf{at least 10.5 points to pass}.
+  \end{itemize}
+  \end{minipage}
+  }
+
+\bigskip
+
+\bigskip
+
+\newpage
+
+\subsection{Propositional and predicate logic (8 points)}
+
+\begin{enumerate}[a)]
+\item Fill out the truth table:\\
+ \begin{tabular}[t]{|c|c|c|c|c|c|c|c|}
+   \toprule
+   $p$ & $q$ & $r$ & $p\to q$ & $q\to r$ & $(p\to q)\land (q\to r)$ 
+   & $p\to r$   & $[(p\to q)\land (q\to r)]\to (p\to r)$\\
+   \midrule 
+   T & T & T & T & T & T & T & T \\
+   \hline
+   T & T & F & T & F & F & F & T \\
+   \hline
+   T & F & T & F & T & F & T & T\\
+   \hline 
+   T & F & F & F & T & F & F & T\\
+   \hline 
+   F & T & T & T & T & T & T & T\\
+   \hline 
+   F & T & F & T & F & F & T & T\\
+   \hline 
+   F & F & T & T & T & T & T & T\\
+   \hline 
+   F & F & F & T & T & T & T & T\\
+   \bottomrule
+ \end{tabular}
+%\end{center}
+\item Let $p,q,r$ be propositions. Is the compound proposition
+  $[(p\to q)\land (q\to r)]\to (p\to r)$ a tautology?
+  Explain why/why not.
+
+  \textbf{The compound proposition is a tautology, because it is true for all cases in the truth table.\\
+    By definition, a tautology is an assertion that is true in every possible case/interpretation}.
+  \qed
+\medskip
+
+\item Let $p,q,r$ be propositions. Use basic logical equivalences to
+  prove that the compound propositions $(p\land \lnot q)\to  r$
+  and $p\to (q\lor r)$ are logically equivalent.
+
+\textit{Write as disjunction}. \\
+$(p \wedge \neg q) \rightarrow r \equiv \neg (p \wedge \neg q) \vee r$\\
+\textit{De Morgan}. \\
+$ \neg (p \wedge \neg q) \vee r \equiv (\neg p \vee q) \vee r$\\
+\textit{Assiociative laws}. \\
+$ (\neg p \vee q) \vee r \equiv \neg p \vee ( q \vee r)$\\
+\textit{Logical equivalence for conditional statements}. \\
+$ \neg p \vee (p \vee r) \equiv p \rightarrow (q \vee r) $\\
+\qed
+
+
+\medskip
+
+\item What are the truth values of the statements
+  $\forall n\exists m(n+m=0)$ and $\exists n\forall m(n<m^2)$ if the
+  domain for all variables consists of $\Z$, the set of all integers?
+  Explain your answer.
+
+  \begin{itemize}
+  \item The first statement, $\forall n\exists m(n+m=0)$ is \textbf{true}, because the domain of integers contains a negative/positive counterpart for every value. For the particular statement, it means that for all $n$, there exists a counterpart such that the sum will be 0.
+    This works because there only has to exist a single $m$ for any $n$ value.
+  \item The second statement, $\exists n\forall m(n<m^2)$ is \textbf{true}, because there has to exist a value of $\Z$ such that all values in $\Z$ squared are greater that this number. You can pick $n$ to be a negative number, and all $m$ values will be strictly greater. So the statement is true.  
+  \end{itemize}
+  \qed
+\end{enumerate}
+
+\bigskip
+
+\subsection{Set theory and functions (8 points)}
+\label{sec:set-theory-functions}
+
+\def\firstcircle{(0,0) circle (1.5cm)}
+\def\secondcircle{(45:2cm) circle (1.5cm)}
+\def\thirdcircle{(0:2cm) circle (1.5cm)}
+
+\colorlet{circle edge}{blue!50}
+\colorlet{circle area}{blue!20}
+\tikzset{filled/.style={fill=circle area, draw=circle edge, thick}, outline/.style={draw=circle edge, thick}}
+
+
+\begin{enumerate}[a)]
+\item Let $A, B, C$ be sets. Draw a Venn diagram and color the region
+  $(A - C) \cap (C- B)$.  Prove (using set identities) or disprove
+  (give a counterexample) that $(A - C) \cap (C- B) = \emptyset$.
+
+  \begin{tikzpicture}
+    \draw \firstcircle node[below] {$A$};
+    \draw \secondcircle node[above] {$B$};
+    \draw \thirdcircle node[below] {$C$};
+  \end{tikzpicture}
+
+  Let $x \in (A - C) \wedge x \in (C - B)$. \\
+  For the first part of the intersection, $x$ is in $A$ and not in $C$, for the second part of the intersection, $x$ is in $C$ and not in $B$. \\
+
+  Expanding this, we get: \\
+  $x \in C \wedge \neg (x \in C)$
+
+  Which is \textbf{F} by the negation law. 
+
+  The proposition now looks like: \\
+  $x \in A \wedge \neg (x \in B) \wedge F$. \\
+
+  With set identities, this can be written as: \\
+  $(A - C) \cap (C - B) \equiv (A \cap \overline{C}) \cap (C \cap \overline{B}) \equiv (A \cap \overline{B}) \cap (C \cap \overline{C})$ 
+
+  $ (A \cap \overline{B}) \cap (C \cap \overline{C}) \equiv (A\cap \overline{B}) \cap \emptyset \equiv \emptyset$
+
+  This means that $(A-C) \cap (C-B) \subseteq \emptyset$.
+  And thus the initial proposition is a subset of the empty set.
+  \qed
+  
+  % \begin{itemize}
+  % \item $
+  % \end{itemize}
+  
+\medskip
+
+\item Let $A, B, C$ be sets. Draw a Venn diagram and color the region
+  $(A - C) \cap (B- C)$. Prove (using set identities) or disprove
+  (give a counterexample) that $(A - C) \cap (B- C) = \emptyset$.
+
+  \begin{tikzpicture}
+    \draw \firstcircle node[below] {$A$};
+    \draw \secondcircle node[above] {$B$};
+    \draw \thirdcircle node[below] {$C$};
+
+    \begin{scope}
+      \clip \secondcircle;
+      \clip \firstcircle;
+      \draw[filled, even odd rule] \firstcircle \thirdcircle;
+    \end{scope}
+  \end{tikzpicture}
+
+  Looking at the diagram, I will try to create a counterexample, because it looks like that's whats needed... \\
+
+  Let $A = B = \{1\}$ and $ C = \emptyset$.
+
+  $A - C = A - \emptyset = A = B = \{1\}$. \\
+  $B - C = B - \emptyset = B = A = \{1\}$. \\
+
+  $(A - C) \cap (B - C) = A \cap B = A \cap A = A = B = \{1\}$.
+
+  $\{1\} \neq \emptyset$ and therefore we disproved the proposition by counterexample.
+  \qed
+  
+\medskip
+
+\item Let $f(x)=x^2$ be a function from the set of real numbers to the
+  set of real numbers. Is $f$ one-to-one (injective)? Onto
+  (surjective)? A one-to-one correspondence (bijective)? Explain
+  why/why not.
+\end{enumerate}
+
+\begin{itemize}
+\item It is \textbf{not} injective for $\R$ because multiple inputs will map to the same output. A quick example would be 3 and -3.
+\item It is also \textbf{not} surjective because the negative co-domain $\R^-$ does not have pre-images mapping to them. No input $x$ will map to a value $y < 0$. Thus is not surjective.
+\item It is also \textbf{not} bijective because it is neither injective or surjective. \qed
+\end{itemize}
+
+\newpage
+
+\subsection{Number theory (6 points)}
+\label{sec:number-theory}
+
+\begin{enumerate}[a)]
+\item Let $a$ be an integer that is not divisible by 3. Prove that
+  $(a+1)(a+2)$ is divisible by 3.
+
+\medskip
+
+\item Use the Euclidean algorithm to find $\gcd(252,356)$. \\
+
+  $356/252 = 1$, the remainder is $104$. $356$ can be written as $252 \cdot 1 + 104$. Continue with gcd(252,104). \\
+
+  $252/104 = 2$, remainder $44$. $252 = 104 * 2 + 44$. gcd(104,44). \\
+
+  $104/44 = 2$, remainder $16$. $104 = 44 * 2 + 16$. gcd(44, 16). \\
+
+  $44/16 = 2$, remainder $12$. $44 = 16 * 2 + 12$. gcd(16,12) \\
+
+  $ 16 / 12 = 1$, remainder $4$. $16 = 12 * 1 + 4$. gcd(12,4) \\
+
+  $12/4 = 3$. Greater common denominator with 356 and 252 is \textbf{3}.
+  \qed
+  
+\medskip
+
+\item Find each of these values:
+  \begin{itemize}
+  \item $(177\bmod 31 + 270\bmod 31)\bmod 31$ \\
+
+    177 mod 31 = 22 and 270 mod 31 = 22.
+
+    Simplify the equation as $(22 + 22)$ mod $31$ = 44 mod 31 = \textbf{13}.
+    \qed
+    \medskip
+  \item $\bigl[5(99^2\bmod 32)\bigr]\bmod 15$
+
+    $99^2$ = 9801. \\
+
+    9801 mod 32 = 9. \\
+
+    9 * 5 = 45. \\
+
+    45 mod 15 = \textbf{0}.
+    \qed
+    
+  \end{itemize}
+\end{enumerate}
+
+%\newpage
+\bigskip
+
+\subsection{Induction (8 points)}
+\label{sec:induction}
+
+Use mathematical induction to prove that
+  $$\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}$$
+for all integers $n\geq 1$.   \\
+
+Let $P(n)$ =   $$\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}$$ 
+
+
+\begin{itemize}
+\item Basis step, verify $P(1)$ (smallest $n$ in this case is 1).
+  $$
+  P(1) = \sum_{k=1}^1 k^2 = \frac{1(1+1)(2\cdot 1+1)}{6} \Rightarrow 1^2 = \frac{6}{6} = 1
+  $$
+\item Next, we assume P(m) is true for an arbitrary $m \geq 1$. \\
+  To write the function in terms of m: \\
+
+  $$P(m) = \sum_{k=1}^m k^2 = \frac{m(m+1)(2m+1)}{6}$$
+
+\item $P(m+1)$ can be written as: \\
+
+  $$
+  P(m+1) = \sum_{k=1}^m k^2 + (m+1)^2 = \frac{m(m+1)(2m+1)}{6} + (m+1)^2
+  $$
+
+  $$
+  = \frac{m(m+1)(2m+1)+6(m+1)^2}{6} = \frac{m(m+1)(2m+1)+6(m+1)(m+1)}{6}
+  $$
+
+  $$
+  = \frac{(m+1)(m(2m+1)+6(m+1))}{6} = \frac{(m+1)(m+2)(2(m+1)+1)}{6} 
+  $$
+
+  $$
+  = \frac{(m+1)((m+1)+1)(2(m+1)+1)}{6}
+  $$
+
+  Now we have shown that the basis is verified, and it will hold for $P(m)$ and some $P(m+1)$ where $m \geq 1$.\\
+  \qed
+  
+\end{itemize}
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
