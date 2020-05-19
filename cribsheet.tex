@@ -145,6 +145,29 @@ Cardinality arguments can be used to show that some functions are \textbf{uncomp
 Matrix addition (+), Boolean meet ($\wedge$) and join ($\vee$) are done entry-wise; Boolean matrix product ($\odot$) is like matrix multiplication using boolean operators. \\
 \textbf{Transpose:} \textbf{A}$^t$ is the matrix whose $(i,j)^{th}$ entry is $a_{ij}$ (the $(j,i)^{th}$ entry of \textbf{A}); \\
 \textbf{A} is \textbf{symmetric} if \textbf{$A^t=A$};
+\newpage
+\subsection{Chapter 3}
+\textbf{Algorithm} are commonly expressed in \textbf{pseudo-code} when not directly implemented in a domain specific area. \\
+\textbf{Keywords for algorithms:} \{input, output, definiteness, correctness, finiteness, effectiveness, generality\}. \\
+\textbf{Greedy algorithms:} Will examine and pick the best choice at a given step. Not always the best. \\
+\textbf{Brute forcing:} Specifically in discrete mathematics, this referres to examining the entire space of solutions and then determine the best one (very inefficient, sometimes necessary). Not explained in this course: \textbf{dynamic programming, probabilistic algorithms, divide-and-conquer}. \\
+\textbf{Halting problem:} The unsolvable computing problem whether a program will halt given input. (Alan Turing for reference...) \\
+\textbf{Big-O:} Half of inf102 is just this: \\
+$f(x) = O(g(x))$ means $\exists C\exists k \forall x(x > k \rightarrow |f(x)| \leq C|g(x)|)$. Big-O of a sum is the largest (fastest growing) of the functions in the sum. Big-O of a product is the product of the big-O's of the factors. If $f$ is $O(g)$, the $g$ is $\Omega (f)$ "big-omega". If $f$ is both big-O and big-Omega of $g$, then $f$ is $\theta (g)$ "big-theta". \\
+\textbf{Little-O:} We say that $f(x)$ is $o(g(x))$ if $\lim_{x\rightarrow \infty}f(x)/g(x) =0$.\\
+\textbf{Powers grow faster than logs:} $(\log n)^c$ is $O(x^d)$ but not the other way around, where $c$ and $d$ are positive numbers. \\
+If $f_1(x)$ is $O(g_1 (x))$ and $f_2(x)$ is $O(g_2(x))$, then $(f_1+f_2)(x)$ is $O(\max (g_1(x),g_2(x)))$ and $(f_1f_2)(x)$ is $O(g_1(x)g_2(x))$. \\
+$\log n!$ is $O(n \log n)$. \\
+\textbf{Time complexity:} Binary search = $O(\log n)$ (cut half of possibilites at each step), linear search $O(n)$ (all input is examined exactly once), both have \textbf{space complexity (in terms of computer memory) O(1)} without taking the input into account. Bubble sort and insertion sort have $O(n^2)$. \\
+Matrix multiplication has standard algorithm time complexity of $O(m_1m_2m_3)$ if the matrices have dimensions $m_1 \times m_2$ and $m_2 \times m_3$. \\
+Efficient algorithms can reduce the complexity of multiplying two $n \times x$ matrices from $O(n^3)$ to $O(n^{\sqrt{7}})$
+Important complexity classes include polynomials $n^b$, exponential ($b^n$ for $b > 1$) and factorial ($n!$). \\
+A problem that can be solved by an algorithm with polynomial worst-case time complexity is called \textbf{tractable}; otherwise \textbf{intractable}. \\
+\textbf{P=NP problem:} The class \textbf{P} is the class of tractable problems. The class \textbf{NP} consists of the problems for which it is possible to check solutions (\textbf{not FIND solutions}) in polynomial time. This means that \textbf{$P \subseteq NP$} yet the \textbf{P=NP} problem is unsolved because it has not been shown whether \textbf{P=NP}.
+
+
+
+
 
  
 \end{document}
