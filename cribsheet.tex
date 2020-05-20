@@ -164,10 +164,45 @@ Efficient algorithms can reduce the complexity of multiplying two $n \times x$ m
 Important complexity classes include polynomials $n^b$, exponential ($b^n$ for $b > 1$) and factorial ($n!$). \\
 A problem that can be solved by an algorithm with polynomial worst-case time complexity is called \textbf{tractable}; otherwise \textbf{intractable}. \\
 \textbf{P=NP problem:} The class \textbf{P} is the class of tractable problems. The class \textbf{NP} consists of the problems for which it is possible to check solutions (\textbf{not FIND solutions}) in polynomial time. This means that \textbf{$P \subseteq NP$} yet the \textbf{P=NP} problem is unsolved because it has not been shown whether \textbf{P=NP}.
-
-
-
-
+\newpage
+\subsection{Chapter 4}
+\textbf{Divisibility:} $a | b$ means $a \neq 0 \wedge \exists c(a\cdot c=b)$ ($a$ is a \textbf{divisor} or \textbf{factor} of $b$ such that $b$ is a multiple of $a$). \\
+\textbf{Base $b$ representiations:} ($a_{n-1}a_{n-2}...a_2a_1a_0$)$_b = a_{n-1}b^{n-1}+...+a_2b^2+a_1b+a_0$.\\
+To convert from base 10 to base $b$, continually divide by $b$ and record remainders as $a_0,a_1,a_2,...$ ($b=8$ is \textbf{octal}, $b=16$ is \textbf{hexadecimal}, using A-F for 10-15). Convert from binary to octal by grouping bits by \textbf{threes}, from the right, to hexadecimal by grouping by fours; because $2^3=8$ and $2^4=16$. \\
+\textbf{Addition:} of two \textbf{binary numerals} each of $n$ bits (($a_{n-1}a_{n-2}...a_2a_1a_0$)$_2$) requires $O(n)$ bit operations.\\
+\textbf{Multiplication:} requires $O(n^2)$ bit operations if done naively, $O(n^{1.585})$ steps by more sophisticated algorithms. \\
+\textbf{Division "algorithm":}
+$$
+\forall a \forall d > 0 \exists q \exists r (a = dq + r \wedge 0 \leq r < d)
+$$
+where $q$ is the quotient and $r$ is the remainder; we write $a$ \textbf{mod} $d$ for the remainder. \\
+\textbf{Example of the division "algorithm":}
+$$
+-18 = 5 \cdot (-4) + 2 \rightarrow -15\ \textbf{mod}\ 5 = 2
+$$\\
+\textbf{Congruent modulo $m$:} $a \equiv b (\ mod\  m) \iff m | a - b \iff a\ mod\ m = b\ mod\ m$ \\
+One can do arithmetic in $\Z_m = \{ 0,1,...,m-1\}$ by working modulo $m$. There are fast algorithms for computing $b^n\ mod\ m$, based on successive squaring. \\
+Integer $n > 1$ is said to be \textbf{prime} $\iff$ its only factors are 1 and itself; otherwise it is referred to as a \textbf{composite}. \\
+There are infinitely many \textbf{primes}, but it is not known whether there are infinitely many twin primes (\textbf{primes that differ by 2}), or whether every even positive integer greater than 2 is the sum of two primes (\textbf{Goldbach's conjecture}) or whether there are infinitely many \textbf{Mersenne primes $\rightarrow$ primes of the form $2^p -1$}. \\
+\textbf{Naive test for primeness and test for prime factorization:} To find prime factorization of $n$, successively divide it by all primes less than $\sqrt{n}$; if none is found, then \textbf{n is prime}. If a prime factor $p$ is found, then continue the process to find the prime factorization of the remaining factor, namely $n/p$; this time the trial divisions can start with $p$. Continue until a prime factor remains. \\
+\textbf{Prime number theorem} states that there are approximately $n/\ln(n)$ primes less than or equal to $n$. \\
+\textbf{Fundamental theorem of arithmetic:} Every integer greater than 1 can be written as a product of one or more primes, and the product is unique except for the order of the factors. (A proof based on fact that if a prime divides a product of integers, then it divides at least one of those integers.) \\
+\textbf{Euclidean algorithm for greatest common divisor}: $gcd(x,y) = gcd(y,x\ \textbf{mod}\ y)$ if $y \neq 0$; $gcd(x,0)=x$. \\
+Using extended Euclidean algorithm or working backwards, one can find \textbf{Bezout coefficients} and write $gcd(a,b) = sa+tb$. \\
+Two integers are \textbf{relatively prime} if their greatest common divisor (gcd) is 1. The integers $a_1,a_2,...,a_n$ are \textbf{pairwise relatively prime} $\iff gcd(a_i,a_j) = 1$ whenever $1 \leq i < j \leq n$. \\
+\textbf{Chinese reminder theorem:} If $m_1,m_2,...m_n$ are pairwise relatively prime, then the system $\forall i(x\equiv a_i (\ mod\ m_i))$ has unique solution modulo $m_1m_2...m_n$. An example of application of this: Handling very large integers on a computer. \\
+\textbf{Fermat's little theorem:} $a^{p-1} \equiv 1 (\ mod\ p)$ if $p$ prime and does not divide $a$. The converse is not true; for example $2^{340} \equiv 1(\ mod\ 341)$ so $341(=11\cdot 31)$ is referred to as a \textbf{pseudo prime}; \\
+If $a$ and $b$ are positive integers, then there exist integers $s$ and $t$ such that $as+bt = gcd(a,b)$ \textbf{linear combination}. \\
+This theorem allows one to compute the \textbf{multiplicative inverse} $\overline{a}$ of $a\ modulo\ b$ (i.e $\overline{a}a \equiv 1 (\ mod\ b))$ as long as $a$ and $b$ are relatively prime, which enables one to solve \textbf{linear congruences} $ax \equiv c (\ mod\ b)$. \\
+\textbf{A primitive root} modulo a prime $p$ is an integer $r$ in $\Z_p$ such that every nonzero element of $\Z_p$ is a power of $r$. \\
+\textbf{Discrete logarithms:} $\log_r a = e$ modulo $p$ if $r^e$ \textbf{mod} $p = a$ and $1 \leq e \leq p -1$  \\
+A common \textbf{hashing function:} $h(k) = k\ \textbf{mod}\ m$, where $k$ is the key. \\
+\textbf{Check digits} for error-correcting codes like UPCs, involve modular arithmetic (??????????) \\
+\textbf{Pseudorandom numbers:} can be generated by the \textbf{linear congruential method:} $x_{n+1} = (ax_n +c)\ \textbf{mod}\ m$, where $x_0$ is arbitrarily chosen \textbf{seed}. Then $\{x_n/m\}$ will be rather randomly distributed numbers between 0 and 1. \\
+\textbf{Shift cipher:} $f(p) = (p + k)\ \textbf{mod}\ 26 [A \iff 0, B \iff 1,...]$. Caeser cipher used $k=3$. \\
+\textbf{Affine cipher:} Uses $f(p) = (ap+b)\ \textbf{mod}\ 26$ with $gcd(a,26)=1$. \\
+\textbf{RSA public key encryption system:} An integer $M$ representing the plaintext is translated into an integer $C$ representing the ciphertext using the function $C = M^e\ \textbf{mod}\ b$, where $n$ is a public numbers that is the product of two large (100-digit or so) primes and $e$ is a public number \textit{relatively} prime to $(p-1)(q-1)$; the primes $p$ and $q$ are kept secret. Decryption is accomplished via $M=C^d\ \textbf{mod}\ n$, where $d$ is an inverse of $e$ modulo $(p-1)(q-1)$. It is infeasible to compute $d$ without knowing $p$ and $q$, which are infeasible to compute from $n$. \\
+Similar methods can be used for \textbf{key exchange protocols}, \textbf{digital signatures}, \textbf{signing stuff in general}. \\
 
  
 \end{document}
