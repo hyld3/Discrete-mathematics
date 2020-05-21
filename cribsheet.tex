@@ -10,10 +10,12 @@
 \usepackage{fancyhdr}
 \usepackage[mathscr]{euscript}
 \usepackage[margin=0.5in]{geometry}
-% \usepackage[shortlabels]{enumitem}
 \usepackage{tikz}
 
+\graphicspath{ {./images/}}
 
+% Used for fancy bullet lists. Not really using it now
+% \usepackage[shortlabels]{enumitem}
 % \setlist[itemize]{label={$\bullet$}, topset=0.2ex, partopset=0pt, parsep=4pt, itemsep=0pt, leftmargin=4.5mm, labelsep=0.5ex}
 % \setlist[enumerate]{align=left, listparindent=0pt}
 
@@ -49,9 +51,11 @@
 \textbf{Conditional statements (implication)}: $p \rightarrow q$, if $p$ then $q \equiv p $ only if $q \equiv$ $p$ is a sufficient condition for $q$. \\
 In other words, q is a necessary condition for p. $p \rightarrow q$ is false then $p$ is true and $q$ is false and otherwise true. \\
 $\neg(p\rightarrow q)\equiv p \wedge (\neg q)$, $p \rightarrow q$ is equivalent to its contrapositive $\neg q \rightarrow \neg p$, but \textbf{not} to its \textbf{converse} $q \rightarrow p$ \textbf{or} its inverse $\neg p \rightarrow \neg q$. \\
+\includegraphics[scale=0.8]{logical_equivalences} \\
+\includegraphics[scale=0.8]{logical_equivalences_conditional} \\
 \smallskip
 \textbf{Biconditional statements:} $ p \iff q$ or expanded to $(p \rightarrow q) \wedge (q \rightarrow p)$. \\
-\smallskip
+\smallskip{}
 \textbf{De Morgan:} $\neg(p \vee q) \equiv (\neg p) \wedge (\neg q)\ ;\ \neg(p \wedge q) \equiv (\neg p ) \vee (\neg q) $
 \smallskip
 Propositional logic can be represented by gates, creating combinational circuits which can represent \textbf{any} logical expression. \\
@@ -66,6 +70,8 @@ $
 $
 \textit{there exists an x such that P(x) and Q(x)} \\
 
+\includegraphics[scale=0.8]{de_morgan_quantifier_laws} \\
+\includegraphics[scale=0.8]{multi_variable_quantifiers} \\
 \textit{P(x),Q(x)} are propositional functions and there is always a \textbf{domain} or \textbf{universe of discourse}, either implicit or explicitly stated,over which the variable ranges. \\
 \medskip
 \textbf{Negations of quantified propositions:} $\neg \forall xP(x)\equiv \exists x\neg P(x); \neg \exists P(x) \equiv \forall x \neg P(x)$. \\
@@ -88,6 +94,7 @@ An \textbf{invalid} argument can be referred to as a \textbf{fallacy}, such as a
 \item $(\exists xP(x)) \rightarrow (P(c)\ for\ some\ c)$ Existential instantiation
 \item $(P(c)\ for\ some\ element\ c) \rightarrow \exists x P(x)$ Existential generalization.
 \end{itemize}
+\includegraphics[scale=0.8]{rules_of_inference} \\
 \newpage
 \subsubsection{Proofs} 
 \bigskip
@@ -105,6 +112,7 @@ An integer is \textbf{even} if it can be written as $2k$ for some integer $k$; a
 \newpage
 \subsection{Chapter 2}
 \subsubsection{Sets}
+\includegraphics[scale=0.8]{set_identities} \\
 \textbf{Empty set:} A set with no elements, commonly denoted as $\emptyset$. Do not confuse this with the set only containing the empty set. The difference is that the empty itself is empty, whereas the set containing the empty set has a single element. \\
 \textbf{Subset:} $A \subseteq B \equiv \forall x(x \in A \rightarrow x \in B)$, whereas a proper subset is $ A \subset B \equiv (A \subseteq B) \wedge (A \neq B)$, in other words, $B$ has at least one element different from the set $A$. \\
 \textbf{Equality of sets:} $A = B \equiv (A \subseteq B \wedge B \subseteq A) \equiv \forall x(x \in A \leftrightarrow x \in B)$. \\
@@ -117,7 +125,9 @@ $A - B = A \cap \overline{B}$ (\textbf{difference}); $A \oplus B = (A - B) \cup 
 \textbf{Inclusion-exclusion (simple case):} $|A \cup B| = |A| + |B| - |A \cap B|$\\
 \textbf{De Morgan's laws for sets:} $\overline{A \cap B} = \overline{A} \cup \overline{B}$; $\overline{A \cup B} = \overline{A} \cap \overline{B}$ \\
 A \textbf{function} f from $A$ (\textbf{the domain}) to $B$ (\textbf{the co-domain}) is an assignment of a unique element of $B$ to each element of $A$. Write $f: A \rightarrow B$. Write $f(a) = b$ if $b$ is assigned to $a$. \textbf{Range} of $f$ is $\{ f(a) | a \in A\}$; $f$ is \textbf{onto/surjective} $\equiv$ range $(f)$ = $B$; $f$ is \textbf{one-to-one/injective} $\equiv$ $\forall a_1 \forall a_2 [f(a_1) = f(a_2) \rightarrow a_1 = a_2]$ \\
+\includegraphics[scale=0.8]{set_de_morgan} \\
 If $f$ is one-to-one \textbf{and} onto, it is \textbf{bijective} and the \textbf{inverse} function $f^{-1} : B \rightarrow A$ is defined by $f^{-1}(y) = x \equiv f(x) = y$. \\
+\includegraphics[scale=0.8]{function_correspondance}\\
 If $f : B \rightarrow C$ and $g : A \rightarrow B$, then the \textbf{composition} $f \circ g$ is the function from $A$ to $C$ defined by $f \circ g(x) = f(g(x))$. \\
 \textbf{Rounding functions:} $\floor{}$ is the largest integer less than or equal to x \textbf{floor function}; $\ceil{}$ is the smallest integer greater than or equal to $x$ \textbf{the ceiling function}. \\
 \textbf{Summation notation:}
@@ -133,8 +143,9 @@ $$
 $$
 \sum_{j=1}^{n} j^2 = 1^2 + 2^2 + ... + n^2 = \frac{n(n +1)(2n+1)}{6}
 $$
+\includegraphics[scale=0.8]{summation_formulae} \\
 \textbf{Sum of geometric progression:}
-\textbf{(I don't think we did this in the course)}\\ 
+\textit{(I don't think we did this in the course)}\\ 
 \newpage
 Two sets are said to have the \textbf{same cardinality} if there is a \textbf{bijection} between them. We can say that $|A| \leq |B|$ if there is a one-to-one function from $A$ to $B$. \\
 A set is $countable$ if it is finite or there is a \textbf{bijection} from the positive integers to the set. \textbf{In other words}, if the elements of the set can be listed (e.g. $a_1, a_2, ...$). Sets of the latter type are called $countably infinite$ and the \textbf{cardinality of these sets are denoted with $\aleph_0$ }. The empty set, the integers and the rational numbers \textbf{are countable}. The union of a countable number of countable sets is countable. \\
@@ -208,6 +219,7 @@ Similar methods can be used for \textbf{key exchange protocols}, \textbf{digital
 \textbf{The well-ordering property:} Every non-empty set of nonnegative integers has a "least element". \\
 \textbf{The principle of mathematical induction:} Let $P(n)$ be a propositional function in which the domain (the universe of discourse) is the set of positive integers. Then if one can show that $P(1)$ is true (through \textbf{Base case/Base step}) and that for every positive integer $k$, the conditional statement $P(k) \rightarrow P(k+1)$ is true \textbf{(inductive step)}, then one has proved that $\forall n P(n)$. The hypothesis $P(k)$ in a proof of the inductive step is called the \textbf{inductive hypothesis}. \\
 More generally, the indcution can start at any integer, and there could potentially be several base cases. \\
+\includegraphics{induction_template} \\
 \textbf{Strong induction:} Let $P(n)$ be a propositional function in which the domain (again, \textbf{universe of discourse}) is the set of positive integers. Then if one can show that $P(1)$ is true, and that for every positive integer $k$ the conditional statement $[P(1) \wedge P(2) \wedge ... \wedge P(k)] \rightarrow P(k + 1)$ is true \textbf{(inductive step)}, then one has proved $\forall n P(n)$. The hypothesis $\forall j \leq k P(j)$ in a proof of the inductive step is called the (\textbf{(strong) inductive hypothesis}). Again, the induction can start at any integer, and there can be several base cases. \\
 \textbf{Inductive/Recursive definitions (functions):} Is a definition of a function $f$ with the set of nonnegative integers as its domain: Specification of $f(0)$, together with, for each $n > 0$, a rule for finding $f(n)$ from values of $f(k)$ for $k < n$. \\
 \textbf{Example:} $0! = 1$ and $(n + 1)! = (n + 1) \cdot n!$ \textbf{(factorial function)} \\
@@ -245,6 +257,7 @@ If all outcomes are equally likely in a \textbf{sample space} $S$ with $n$ outco
 For \textbf{complementary event}, $p(\overline{E}) = 1 - p(E)$; for \textbf{union} of two events (either one or both happen), $p(E\cup F) = p(E) + p(F) - p(E \cap F)$; for \textbf{independent events}, $p(E \cap F) = p(E)p(F)$. \\
 The \textbf{conditional probability} of $E$ given $F$ (probability that $E$ will happen after it is known that $F$ happened) is $p(E|F) = p (E \cap F)/p(F)$. \\
 \textbf{Bernoulli trials:} If only two outcomes are \textbf{success} and \textbf{failure}, with $p(success) = p$ and $p(failure) = q = 1 - p$, then the \textbf{binomial distribution} applies, with probability of exactly $k$ success in $n$ trials being $b(k;n,p) = C(n,k)p^kq^{n-k}$. \\
+\includegraphics[scale=0.8]{bernoulli}\\
 \textbf{Bayes Theorem:} \textit{Dont think this was in the curriculum}.\\
 
 \end{document}
