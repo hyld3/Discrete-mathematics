@@ -222,5 +222,24 @@ There is an efficient recursive algorithm for computing \textbf{modular powers (
 A program segment $S$ is \textbf{partially correct} with respect to \textbf{initial assertion} $p$ and \textbf{final assertion} $q$, written $p\{S\}q$, if whenever $p$ is true for the input values of $S$ and $S$ terminates, $q$ is true for the output values of $S$. \\
 A \textbf{loop invariant} for \textbf{while} $condition\ S$ is an assertion $p$ that remains true each time $S$ is executed in the loop; \\
 i.e. $(p\wedge\ condition)\{S\}p$. If $p$ is true before the program segment is executed, then $p$ and $\neg condition$ are true after it terminates (if it terminates at all). In symbols, $p\{\textbf{while}\ condition\ S\}(\neg condition\ \wedge p)$.
- 
+\newpage
+\subsection{Chapter 6}
+\textbf{Sum rule:} Given $t$ mutually exclusive tasks, if task $i$ can be done in $n_i$ ways, then the number of ways to do exactly one of the tasks is $n_1 + n_2 + ... + n_t$.\\
+\textbf{Size of union of \underline{disjoint} sets:} $|A_1 \cup A_2 \cup ... \cup A_n | = |A_1| + |A_2| + ... + |A_n|$. ?? Duplicates ??\\
+\textbf{Two-set case of inclusion-exclusion:} $|A \cup B| = |A| + |B| - |A \cap B|$.
+\textbf{Product rule:} If a task consists of successively performing $t$ tasks, and if task $i$ can be done in $n_i$ ways (after previous tasks have been completed), then the number of ways to do the task is $n_1 \cdot n_2 ... n_t$. \\
+A set with $n$ elements has $2^n$ subsets (equivalently, there are $2^n$ bit strings of length $n$). \\
+\textbf{Tree diagrams:} Can be used to organize counting problems. \\
+\textbf{Pigeonhole principle:} If more than $k$ objects are placed in $k$ boxes, then some box will have more than 1 object.\\
+\textbf{Generalized version of the pigeonhole principle:} If $N$ objects are placed in $k$ boxes, then some box will have at least $[N/k]$ objects. \\
+\textbf{Ramsey number:} $R(m,n)$ is the smallest number of people there must be at a party so that there exist either $m$ mutual friends or $n$ mutual enemies (assuming each pair of people are either friends or enemies). $R(3,3) = 6$. \\
+\textbf{r-permutation} of set with $n$ objects, \textit{ordered} arrangement of $r$ of the objects from the set (no repetitions allowed); there are $P(n,r) = n!/(n-r)!$ such permutations.
+\textbf{r-combination} of set with $n$ objects, \textit{unordered} selection (i.e subset) of $r$ of the objects from the set (no repetitions allowed); there are $C(n,r) = n!/[r!(n-r)!]$ such combinations. Alternative notation is $\begin{pmatrix} n \\ r\end{pmatrix}$, also called the binomial coefficient. \\
+\textbf{Pascal's identity:} \textit{not in curriculum}. \\
+\textbf{Combinatorial identities:} \textit{not in curriculum}. \\
+Number of \textbf{r-permutations} of an $n$-set \textbf{with repetitions allowed} is $n^r$; number of \textbf{r-combinations} of an $n$-set \textbf{with repetitions} allowed is $C(n +r - 1,r)$. This latter value is the same as the \textbf{number of solutions in nonnegative integers} to $x_1 + x_2 + ... + x_n =r $. \\
+\newpage
+\subsection{Chapter 7} 
+If all outcomes are equally likely in a \textbf{sample space} $S$ with $n$ outcomes, then the \textbf{probability of an event $E$} is $p(E) =|E|/n$; more generally, if $p(s_i)$ is probability of $i^{th}$ outcome $s_i$, then $p(E) = \sum_{s_i \in E} p(s_i)$.
+\textbf{Probability distributions: }
 \end{document}
