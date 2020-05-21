@@ -240,6 +240,11 @@ A set with $n$ elements has $2^n$ subsets (equivalently, there are $2^n$ bit str
 Number of \textbf{r-permutations} of an $n$-set \textbf{with repetitions allowed} is $n^r$; number of \textbf{r-combinations} of an $n$-set \textbf{with repetitions} allowed is $C(n +r - 1,r)$. This latter value is the same as the \textbf{number of solutions in nonnegative integers} to $x_1 + x_2 + ... + x_n =r $. \\
 \newpage
 \subsection{Chapter 7} 
-If all outcomes are equally likely in a \textbf{sample space} $S$ with $n$ outcomes, then the \textbf{probability of an event $E$} is $p(E) =|E|/n$; more generally, if $p(s_i)$ is probability of $i^{th}$ outcome $s_i$, then $p(E) = \sum_{s_i \in E} p(s_i)$.
-\textbf{Probability distributions: }
+If all outcomes are equally likely in a \textbf{sample space} $S$ with $n$ outcomes, then the \textbf{probability of an event $E$} is $p(E) =|E|/n$; more generally, if $p(s_i)$ is probability of $i^{th}$ outcome $s_i$, then $p(E) = \sum_{s_i \in E} p(s_i)$. \\
+\textbf{Probability distributions:} satisfy these conditions: $0 \leq p(s) \leq 1$ for each $s \in S$ and $\sum_{s \in S} P(s) = 1$. \\
+For \textbf{complementary event}, $p(\overline{E}) = 1 - p(E)$; for \textbf{union} of two events (either one or both happen), $p(E\cup F) = p(E) + p(F) - p(E \cap F)$; for \textbf{independent events}, $p(E \cap F) = p(E)p(F)$. \\
+The \textbf{conditional probability} of $E$ given $F$ (probability that $E$ will happen after it is known that $F$ happened) is $p(E|F) = p (E \cap F)/p(F)$. \\
+\textbf{Bernoulli trials:} If only two outcomes are \textbf{success} and \textbf{failure}, with $p(success) = p$ and $p(failure) = q = 1 - p$, then the \textbf{binomial distribution} applies, with probability of exactly $k$ success in $n$ trials being $b(k;n,p) = C(n,k)p^kq^{n-k}$. \\
+\textbf{Bayes Theorem:} \textit{Dont think this was in the curriculum}.\\
+
 \end{document}
