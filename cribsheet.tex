@@ -277,5 +277,29 @@ A domain is a \textbf{primary key} if the corresponding field uniquely determine
 For each $a \in A$ the set of elements in $A$ related to (i.e \textbf{equivalent to}) $a$ is the \textbf{equivalence class} of $a$, denoted [$a$]. \\
 \textbf{Canonical example:} Congruence modulo $m$ with equivalence. \\
 The set of equivalence classes partitions $A$ into pairwise disjoint nonempty sets; conversely, every partition of $A$ induces an equivalence relation by declaring two elements to be related if they are in the same set of the partition. 
+\newpage
+\subsection{Chapter 10} 
+\textbf{Simple graph:} $G =(V,E)$ consists of a nonempty set of \textbf{vertices (singularis: vertex)}, and a set of unordered pairs of distinct vertices called \textbf{edges}. \\
+\textbf{A multigraph:} allows more than one \textbf{edge} joining the same pair of vertices (called \textbf{multiple edges or parallel edges}); $E$ is just a set with an endpoint function $f$ taking each edge $e$ to its two $distinct$ endpoints. \\
+\textbf{A pseudograph:} A pseudograph is like a multigraph but enpoints $f(e)$ need not be distinct, allowing \textbf{loops}. \\
+\textbf{A directed} graph is also called a \textbf{digraph}, it is like a simple graph except that the edges are directed (they have an arrow/ a direction attached to them) (each $e$ is an $ordered pair$, and loops are allowed). \\
+\textbf{A directed multigraph} is just like a multihgraph with parallel edges allowed, except that edges are directed (loops are allowed). \\
+Given a directed graph, we can ignore order and look at the \textbf{underlying undirected graph.} \\
+\textbf{Graphs can be used to model relationships:} herein examples such as: \textbf{acquaintances, food webs, telephone calls, networks, roads, internet, tournaments, organizations}. \\
+\textbf{Vertices joined by an edge} are \textbf{adjacent} and the edge is \textbf{incident} to them. \\
+\textbf{A degree of a vertex (deg(v))} is the number of incident edges, with loops counted double. An \textbf{isolated vertex} has degree 0, a \textbf{pendant vertex} has degree 1. \\
+\textbf{A regular graph} has all degrees equal. \\
+In a \textbf{digraph}, $deg(v^-f)$ is the number of edges leading into $v$ (\textbf{in-degree; v is terminal vertex}), and $deg(v^+)$ is number of edges leading out of $v$ (\textbf{out-degree; v is initial vertex}). \\
+\textbf{Bipartite graph:} vertex set can be partitioned into two nonempty sets with no edges joining vertices in same set. \\
+\textbf{The complete graph:} $K_n$ has $n$ verttices and an edge joining every pair $(n(n-1)/2))$ edges in all. \\
+\textbf{Complete bipartite graph} $K_{m,n}$ has $m+n$ vertices in parts of sizes $m$ and $n$ and an edge joining every pair of vertices in different parts ($mn$ edges in all). The \textbf{cycle} $C_n$ has $n$ vertices and $n$ edges, joined in a circle. \textbf{The wheel} $W_n$ is $C_n$ with one more vertex joined to these $n$ vertices. The \textbf{cube} $Q_n$ has all $n$-bit binary strings for vertices, with an edge between every pair of vertices differing in only one bit position. \\
+\textbf{(V,E) is subgraph} of $(W,F)$ if $V \subseteq W$ and $E \subseteq F$. \\
+\textbf{Union} of two simple graphs is formed by taking union of corresponding vertex sets and corresponding edge sets. \\
+\textbf{Graphs can be represented by an adjancancy matrix:} $m$ in position $(i,j)$ denotes $m$ parallel edges from $i$ to $j$. \textbf{Adjacency lists, incidence matrix} (1 is position $(i,j)$ says that vertex $i$ is incident to edge $j$). \\
+\textbf{Graphs are isomorphic} if there is a bijection between vertex sets that preserves all adjacencies and nonadjacencies. To show graphs are \textbf{not} isomorphic, find \textbf{invariant} on which they differ (e.g. degree sequence, existence of cycles). \\
+\textbf{A path} of length $n$ from $u$ to $v$ is a sequence of $n$ edges leading successively from $u$ to $v$; is a \textbf{circuit} if $n > 0$ and $ u = v$, is \textbf{simple} if no edge occurs more than once. \\
+\textbf{A graph is connected} if every pair of vertices is joined by a path. A digraph is \textbf{strongly connected} if every pair of vertices is joined by a path in each direction, \textbf{weakly connected} if underlying undirected graph is connected. \\
+\textbf{Components} are maximal connected subgraphs.\\
+\textbf{Removal of cut edge (bridge)} or \textbf{cut vertex (articulation point)} creates more components.  
 
 \end{document}
