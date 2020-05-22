@@ -259,5 +259,23 @@ The \textbf{conditional probability} of $E$ given $F$ (probability that $E$ will
 \textbf{Bernoulli trials:} If only two outcomes are \textbf{success} and \textbf{failure}, with $p(success) = p$ and $p(failure) = q = 1 - p$, then the \textbf{binomial distribution} applies, with probability of exactly $k$ success in $n$ trials being $b(k;n,p) = C(n,k)p^kq^{n-k}$. \\
 \includegraphics[scale=0.8]{bernoulli}\\
 \textbf{Bayes Theorem:} \textit{Dont think this was in the curriculum}.\\
+\newpage
+\subsection{Chapter 9 (Chapter 8 not in curriculum)}
+\textbf{(Binary) Relations:} A binary relation $R$ from $A$ to $B$: subset of the \textbf{cartesian} set $A \times B$. Write $aRb$ for $(a,b) \in R$; relation \textbf{on} $A$ is relation from $A$ to $A$; graph of a function from $A$ to $B$ is a relation such that $\forall a \in A \exists $ exactly one pair $(a,b)$ in the relation. \\
+Relation $R$ on a set $A$ is \textbf{reflexive} if $aRa$ for all $a \in A$.\\
+\textbf{Irreflexive} if $aRa$ for no $a \in A$. \\
+\textbf{Symmetric} if $aRb$ implies $bRa$ for all $a,b \in A$. \\
+\textbf{Asymmetric} if $aRb$ implies that $b$ is not related to $a$, for all $a,b \in A$. \\
+\textbf{Antisymmetric} if $aRb \wedge bRa$ implies $a = b$ for all $(a,b) \in A$. \\
+\textbf{Transitive} if $aRb \wedge bRc$ implies $aRc$ for all $a,b,c \in A$. \\
+\textbf{Inverse} relation to $R$ is given by  $bR^{-1}a \iff aRB$. \\
+If $R$ is a relation from $A$ to $B$ and $S$ is a relation from $B$ to $C$, then the \textbf{composite} is the relation $S \circ R$ from $A$ to $C$ in which $a$ is related to $c \iff$ there exists a $b \in B$ such that $aRb$ and $bSc$. $R^n = R \circ R \circ ... \circ R$. \\
+\textbf{N-ary relations:} on domains $A_1,A_2,...,A_n$ is a subset of $A_1 \times A_2 \times ... \times A_n$; databases using the relational data model are just sets of \textbf{n-ary} relations in which each $n$-tuple is called a \textbf{record} made up of \textbf{fields} ($n$ is the \textbf{degree}). \\
+\textbf{A relation as matrix representation:} A relation $R$ on $A = \{ a_1,a_2,...,a_n\}$ can be represented by an $n \times x$ matrix $M_R$ whose $(i,j)^{th}$ entry is 1 if $a_iRa_j$ and is 0 otherwise. Reflexivity, symmetry, antisymmetry, transitivity can easily be read off the matrix. Boolean products of the matrices give the matrix for the composite ($M_{S \circ R} = M_R \odot M_S$). \\
+A domain is a \textbf{primary key} if the corresponding field uniquely determines the record. \\
+\textbf{Equivalence classes:} A relation $R$ of set $A$ is an \textbf{equivalence relation} if $R$ is reflexive, symmetric and transitive. Usually, equivalence relations can be recognized by their definitions being of the form "two elements are related $\iff$ they have the same [something]". \\
+For each $a \in A$ the set of elements in $A$ related to (i.e \textbf{equivalent to}) $a$ is the \textbf{equivalence class} of $a$, denoted [$a$]. \\
+\textbf{Canonical example:} Congruence modulo $m$ with equivalence. \\
+The set of equivalence classes partitions $A$ into pairwise disjoint nonempty sets; conversely, every partition of $A$ induces an equivalence relation by declaring two elements to be related if they are in the same set of the partition. 
 
 \end{document}
