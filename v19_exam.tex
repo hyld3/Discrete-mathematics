@@ -1,0 +1,199 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{mathbbol,bm,amsmath,amsthm,amsfonts,amssymb}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage[mathscr]{euscript}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{tikz}
+
+\graphicspath{ {./images/}}
+
+% Used for fancy bullet lists. Not really using it now
+% \usepackage[shortlabels]{enumitem}
+% \setlist[itemize]{label={$\bullet$}, topset=0.2ex, partopset=0pt, parsep=4pt, itemsep=0pt, leftmargin=4.5mm, labelsep=0.5ex}
+% \setlist[enumerate]{align=left, listparindent=0pt}
+
+\newcommand{\PP}{\mathscr{P}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\iff}{\;\leftrightarrow\;}
+\newcommand{\floor}[1][x]{\lfloor #1\rfloor}
+\newcommand{\ceil}[1][x]{\lceil #1\rceil}
+\newcommand{\mat}[1][A]{\text{\textbf{#1}}}
+\newcommand{\I}{\mathbb{1}}
+
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\alph{subsubsection}}
+
+\title{\huge V19 exam notes}
+
+\author{\LARGE MNF130V2020}
+
+\begin{document}
+
+\maketitle
+
+\bigskip
+
+\newpage
+
+\subsection{Prop. logic}
+
+\textbf{c)} \\
+
+What we want to show: 
+$$
+(p \wedge \neg q) \rightarrow \neg r \equiv (p \wedge r) \rightarrow q
+$$
+Using identities: \\
+$$
+(p \wedge \neg q) \rightarrow \neg r \equiv \neg (p \wedge \neg q) \vee \neg r \equiv (\neg p \vee q) \vee \neg r
+$$
+$$
+(\neg p \vee q) \vee \neg r \equiv (\neg p \vee \neg r) \vee q \equiv (p \wedge r) \rightarrow q
+$$
+\textbf{d)} \\
+
+Truth value of: \\
+$$
+\exists n \forall m P(m,n)
+$$
+
+F, just set $m = n + 1$.\\
+
+Truth value of: \\
+$$
+\forall n \exists m P(n,m)
+$$
+T, take n and set $m=n$.
+\subsection{2 Set theory and functions}
+
+\textbf{a)} \\
+
+$$
+A - (B \cap C) = (A - B) \cap (A - C)
+$$
+
+Counterexample:
+$$
+A = \{1,2,3\}, B = \{2,3\}, C = \{3\}
+$$
+
+$$
+A - (B \cap C) = \{1,2,3\} - (\{2,3\} \cap \{3\}) = \{1,2,3\} - \{3\} = \{1,2\}
+$$
+
+$$
+(A - B) \cap (A - C)  = (\{1,2,3\} - \{2,3\}) \cap (\{1,2,3\} - \{3\}) = \{1\} \cap \{1,2\} = \{1\}
+$$
+\newpage
+\textbf{b)} \\
+
+$$
+A - (B \cap C) = (A - B) \cup (A - C)
+$$
+
+Either do Venn diagram (this one is easy to visualize), or: \\
+
+$$
+x \in (A - (B \cap C)) \equiv x \in A \wedge \neg x \in (B \cap C)
+$$
+$$
+\equiv x \in A \wedge \neg (x \in B \wedge x \in C)
+$$
+$$
+\equiv x \in A \wedge (x \notin B \wedge x \notin C)
+$$
+
+$$
+\equiv ((x \in A \wedge (x \notin B)) \vee (x \in A) \wedge (x \notin C))
+$$
+$$
+\equiv (x \in (A-B)) \vee (x \in (A-C))
+$$
+$$
+\equiv x \in ((A-B) \cup (A-C))
+$$
+
+\textbf{c)} \\
+
+Injective: Yes. For all integers $n$ and $m$, $m \neq n$, then $3n \neq 3m$\\
+Surjective: No. No instance, where $3n = 2$ \\
+Bijective: No.
+
+\subsection{3 Number theory}
+
+Let $a = bq + r$, where $a,b,q,r$ are integers. Prove that $gcd(a,b) = gcd(b,r)$. \\
+Let $S$ be the set of common divisors of $a$ and $b$, $S = \{ c | c|a \wedge c|b \}$, and let $T$ be the set of common divisors of $b$ and $r$,
+$T = \{ c | c|b \wedge c|r \}$. We prove that $S = T$ by showing that $S \subseteq T$ and $T \subseteq S$. \\
+Let $c \in S$. Then there exist integers $k,l$ such that $a = ck$ and $b = cl$. Hence $r = a - bq = c (k-lq)$. Because $k-lq$ is an integer scaled by c and $c|r$, $c \in T$. \\
+
+Let $c \in T$. Then there exist integers $k,l$ such that $b = ck$ and $r = cl$. Hence $a = bq + r = c (kq + l)$. Because $kq + l$ is an integer, $c | a$ and $c \in S$.
+Because $gcd(a,b)$ is the maximal element of $S$ and $gcd(b,r)$ is the maximal element of $T$ and $S=T$, it will follow that $gcd(a,b) = gcd(b,r)$.
+
+
+\subsection{4 is not worth wasting more time on.}
+\subsection{5 Counting}
+
+\textbf{a)}
+
+
+In each group, there will be $\begin{pmatrix} 5 \\ 2 \end{pmatrix}$ games. With 4 total groups, this will be: \\
+$$
+\begin{pmatrix} 5 \\ 2 \end{pmatrix} + \begin{pmatrix} 5 \\ 2 \end{pmatrix} + \begin{pmatrix} 5 \\ 2 \end{pmatrix} + \begin{pmatrix} 5 \\ 2 \end{pmatrix}
+= 4 \cdot \begin{pmatrix} 5 \\ 2 \end{pmatrix} = 4 \frac{5!}{2!3!}= 4 \frac{5\cdot 4}{2} = 40
+$$
+
+\textbf{b)}
+
+In each group, there can be 5 possible winners. With 4 groups and by the product rule, this becomes: \\
+
+$$
+5 \cdot 5 \cdot 5 \cdot 5 = 5^4
+$$
+
+\textbf{c)} \\
+
+For the first group, there is a total of $\begin{pmatrix} 20 \\ 5 \end{pmatrix}$ combinations. Next group: $\begin{pmatrix} 15 \\ 5 \end{pmatrix}$, then $\begin{pmatrix} 10 \\ 5 \end{pmatrix}$ and only one configuration for the last group:
+
+$$
+\begin{pmatrix} 20 \\ 5 \end{pmatrix} \cdot \begin{pmatrix} 15 \\ 5 \end{pmatrix} \cdot \begin{pmatrix} 10 \\ 5 \end{pmatrix}
+= \frac{20}{5!15!} \cdot \frac{15!}{5!10!} \cdot \frac{10!}{5!5!} = \frac{20!}{(5!)^4}
+$$
+
+\subsection{6 Relations} 
+
+\textbf{a)} \\
+
+\textbf{Reflexive:} for every integer $x$, $x \equiv x (\mod 3)$, so $(x,x) \in R$. \\
+\textbf{Symmetric:} for all intergers $x,y,x \equiv y (\mod 3) \iff x \mod 3 = y \mod 3$, hence $(x,y) \in R$ which implies $(y,x) \in R$. \\
+\textbf{Transitive:} for all integers $x,y,z$, assume that $(x,y) \in R$ and $(y,z) \in R$, then $x \mod 3 = y \mod 3$ and $y \mod 3 = z \mod 3$. Hence $x \mod 3$ and therefore $(x,z) \in R$
+
+$$
+[2]_R = \{ x \in \Z | x \equiv 2 (\mod 3)\} = \{ x \in Z | x \mod 3 = 2\}
+= \{ x \in \Z | x = 3k+2\ for\ some\ integer\ k\}
+$$
+
+Hence $[2]_R$ is the set of integers which have 2 as a remainder after division by 3, that is the set of integers which can be written as 2 plus an integer multiple of 3.
+
+\textbf{b)} \\
+
+The $\vee$ statement breaks transitivity for the relation. To show with a counterexample: \\
+
+$$
+x = 2, y = 0, z = 3 \Rightarrow x \equiv y (\mod\ 2) \wedge y \equiv z (\mod\ 3) \therefore (x,y) \in R \wedge (y,z) \in R
+$$
+
+But
+
+$$
+x \mod 2 = 0 \neq 1 = z \mod 2 \wedge x \mod 3 = 2 \neq 0 \Rightarrow (x,z) \notin R
+$$
+\end{document}
